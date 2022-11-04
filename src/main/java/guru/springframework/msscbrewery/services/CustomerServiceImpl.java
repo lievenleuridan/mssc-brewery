@@ -11,7 +11,7 @@ public class CustomerServiceImpl implements CustomerService {
     public CustomerDto getCustomerById(UUID customerId) {
         return CustomerDto.builder()
                 .id(customerId)
-                .customerName("Drunk Dude")
+                .name("Drunk Dude")
                 .build();
     }
 
@@ -19,7 +19,7 @@ public class CustomerServiceImpl implements CustomerService {
     public CustomerDto saveCustomer(CustomerDto customerDTO) {
         return CustomerDto.builder()
                 .id(UUID.randomUUID())
-                .customerName(customerDTO.getCustomerName())
+                .name(customerDTO.getName())
                 .build();
     }
 

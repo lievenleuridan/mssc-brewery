@@ -36,7 +36,7 @@ class CustomerControllerTest {
 
     @Test
     void saveCustomer() throws Exception {
-        CustomerDto customerDto = CustomerDto.builder().customerName("New drunk guy").build();
+        CustomerDto customerDto = CustomerDto.builder().name("New drunk guy").build();
         String customerDtoToJson = objectMapper.writeValueAsString(customerDto);
 
         when(customerService.saveCustomer(any(CustomerDto.class))).thenReturn(customerDto);
@@ -49,7 +49,7 @@ class CustomerControllerTest {
 
     @Test
     void updateCustomer() throws Exception {
-        CustomerDto customerDto = CustomerDto.builder().customerName("Existing drunk guy").build();
+        CustomerDto customerDto = CustomerDto.builder().name("Existing drunk guy").build();
         String customerDtoToJson = objectMapper.writeValueAsString(customerDto);
 
         when(customerService.saveCustomer(any(CustomerDto.class))).thenReturn(customerDto);
