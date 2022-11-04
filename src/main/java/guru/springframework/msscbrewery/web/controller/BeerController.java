@@ -5,14 +5,17 @@ import guru.springframework.msscbrewery.web.model.BeerDto;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
+import javax.validation.constraints.NotNull;
 import java.util.UUID;
 
 /**
  * Created by jt on 2019-04-20.
  */
+@Validated
 @RequestMapping("/api/v1/beer")
 @RestController
 public class BeerController {
@@ -30,7 +33,7 @@ public class BeerController {
     }
 
     @PostMapping // POST - create new beer
-    public ResponseEntity handlePost(@Valid @RequestBody BeerDto beerDto){
+    public ResponseEntity handlePost(@Valid @NotNull @RequestBody BeerDto beerDto){
 
         BeerDto savedDto = beerService.saveNewBeer(beerDto);
 
